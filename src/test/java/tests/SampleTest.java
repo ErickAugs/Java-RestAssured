@@ -1,7 +1,6 @@
-package org.example.javarestassured;
+package tests;
 
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
+import constantes.Constantes;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.*;
@@ -11,9 +10,8 @@ public class SampleTest {
 
     @Test
     public void testGetEndpoint() {
-        RestAssured.baseURI = "https://jsonplaceholder.typicode.com";
 
-        given().
+        given().baseUri(Constantes.BASE_URL).
                 when().
                 get("/posts/1").
                 then().
